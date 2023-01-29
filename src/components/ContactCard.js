@@ -2,6 +2,10 @@ import React from 'react'
 
 const ContactCard = (props) => {
   const {id, name, email} = props.contact;
+
+  const remove=()=>{
+    props.deleteContactHandler(id);
+  }
   return (
     <div className='w-[95%] mx-auto bg-neutral-100 rounded-lg shadow-lg p-2 flex justify-between'>
           <div className='grid grid-cols-5'>
@@ -13,7 +17,7 @@ const ContactCard = (props) => {
               <p className='text-lg text-neutral-600'>{email}</p>
             </div>
           </div>
-          <div className='text-2xl -translate-x-2 translate-y-2 cursor-pointer text-red-600'><i class="fa-solid fa-trash-can"></i></div>
+          <div className='text-2xl -translate-x-2 translate-y-2 cursor-pointer text-red-600' onClick={remove}><i className="fa-solid fa-trash-can"></i></div>
       </div>
   )
 }
